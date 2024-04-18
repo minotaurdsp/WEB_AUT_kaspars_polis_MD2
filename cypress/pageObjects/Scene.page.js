@@ -1,10 +1,8 @@
 import BasePage from "./base.page";
 
-class Scene1 extends BasePage {
+class Scene extends BasePage {
     
   
-    
-
     // Click - Make Appointment
     static get clickAppointmentButton() {
         return cy.get("#btn-make-appointment");
@@ -55,7 +53,33 @@ class Scene1 extends BasePage {
         cy.get('#comment').contains('CURA Healthcare Service')
     }
 
+
+    // iv.  Click - Login
+    static get clickMenuBurgerIcon() {
+        return cy.get("#menu-toggle");
+    }
+
+    static get clickOnHistoryMenu() {
+        return cy.contains('a', 'History');
+    }
+
+    //  vi. Validate that the sidebar is active
+    static isSidebarOpen() {
+        cy.get('#sidebar-wrapper').should('have.class', 'active');
+    }
+
+    static validateHistory() {
+        cy.contains('p', 'No appointment.').should('exist');
+    }
+    
+    
+
+    
+
+
+    //#sidebar-wrapper
+
   
 }
   
-export default Scene1;
+export default Scene;
